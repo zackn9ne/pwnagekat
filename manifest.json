@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "Testing Extension Functions",
+    "description": "Testing different features for my student project.",
+    "version": "0.1",
+    "content_scripts":
+    [
+        {
+            "matches": ["*://*/*"],
+            "js": ["jquery.js", "content_script.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "http://*/",
+        "https://*/"
+    ]
+}
