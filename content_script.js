@@ -1,38 +1,46 @@
-breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul", "#breakingbad"]
+breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul"]
 madMen = ["Mad Men", "Don Draper"]
 
-var selections = []
+// var selections = []
 
-var addModule = function() {
-  //saving the checkbox value
-  var x = ( $( "input:checked" ).val());
+// var addModule = function() {
+//   //saving the checkbox value
+//   var x = ( $( "input:checked" ).val());
 
-  // checking if it's already been selected
-  if ($.inArray(x, selections)){
-    var index = selections.indexOf(x);
-    selections.splice(index, 1)
-} else {
-    console.log(x)
-    //adding if not found
-    selections.push(x)
-    console.log(selections);
-}}
+//   // checking if it's already been selected
+//   if($.inArray(x, selections)){
+//     var index = selections.indexOf(x);
+//     selections.splice(index, 1)
+// } else {
+//     console.log(x)
+//     //adding if not found
+//     selections.push(x)
+//     console.log(selections);
+// }}
 
 $( document ).ready(function() {
+  selections = []
 
-$('input:checkbox').change(function(){
-   if(this.checked)
-      console.log('checked');
-   else
-      console.log('not checked');
-});
+  $('input:checkbox').change(function(){
+    console.log(this.el)
+
+    var x = ( $("input:checked").val());
+    // console.log(x)
+    selections.push(x)
+    // console.log(selections);
+  });
+    // if(this.checked)
+    //     console.log( $( "input:checked" ).val() + " checked!" );
+    // else
+    //     console.log('not checked');
+    // });
 
 });
 
 
 // $.each(selections, function(selected))
 
-$.each(breakingBad, function(keyword) {
+$.each(breakingBad, function(index, keyword) {
   // debugger
     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
