@@ -2,10 +2,9 @@ breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkma
 madMen = ["Mad Men", "Don Draper"]
 
 
+// var selections = []
 
-var selections = []
-
-$.each(selections, function(selected))
+// $.each(selections, function(selected))
 
 $.each(breakingBad, function(keyword) {
     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
