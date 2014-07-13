@@ -2,7 +2,7 @@ breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkma
 madMen = ["Mad Men", "Don Draper"]
 gameOfThrones = ["Game of Thrones", "Red Wedding"]
 
-var selections = [];
+var selections = {};
 
 function filter(module){
     $.each(module, function(index, keyword) {
@@ -34,11 +34,16 @@ window.addEventListener('load', function(evt) {
         var selection = clicked["value"]
         console.log("Adding to selection array: " + selection);
         // debugger
-        selections.push(selection);
-        // console.log(selections);
+        selections[name] = selection;
+        // selections.push(selection);
+        console.log(selections + " hash");
+        debugger
         }else{
-        var index = selections.indexOf(selection);
-        selections.splice(index, 1);
+        // var index = selections.indexOf(selection);
+        var name = clicked["name"]
+        var selection = clicked["value"]
+        delete selections[name]
+        // selections.splice(index, 1);
         // console.log(selections);
         }
 
