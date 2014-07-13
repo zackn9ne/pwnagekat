@@ -18,17 +18,33 @@ madMen = ["Mad Men", "Don Draper"]
 //     console.log(selections);
 // }}
 
-$( document ).ready(function() {
-  selections = []
+var selections = []
+
+window.addEventListener('load', function(evt) {
 
   $('input:checkbox').change(function(){
-    console.log(this.el)
+    console.log(this)
 
-    var x = ( $("input:checked").val());
+    var clicked = this
+
+    if(clicked.checked === true){
+        var selection = clicked["value"]
+        console.log(selection);
+        selections.push(selection);
+        console.log(selections);
+        // return selections
+        }else{
+        var index = selections.indexOf(selection);
+        selections.splice(index, 1);
+        console.log(selections);
+        // return selections
+        }
+
+    // var x = ( $("input:checked").val());
     // console.log(x)
-    selections.push(x)
+    // selections.push(x)
     // console.log(selections);
-  });
+});
     // if(this.checked)
     //     console.log( $( "input:checked" ).val() + " checked!" );
     // else
