@@ -51,14 +51,22 @@ window.addEventListener('load', function(evt) {
     console.log("These are in the selections array: " + selections);
 
 
-    $.each(selections, function(index, selection){
-        console.log(selection + " that we're about to filter");
-        // if(selection === "madMen")
-        // madMen = ["Mad Men", "Don Draper"]
-        // module = madMen
-        // debugger
-        filter(module);
-    })
+// $.each( obj, function( key, value ) {
+// alert( key + ": " + value );
+// });
+
+    $.each( selections, function( key, value ) {
+            console.log( key + ":" + value );
+    });
+
+    // $.each(selections, function(index, selection){
+    //     console.log(selection + " that we're about to filter");
+    //     // if(selection === "madMen")
+    //     // madMen = ["Mad Men", "Don Draper"]
+    //     // module = madMen
+    //     // debugger
+    //     filter(module);
+    // })
     // return selections;
     });
   //but not here :(
