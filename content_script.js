@@ -1,25 +1,23 @@
-breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul"]
-madMen = ["Mad Men", "Don Draper"]
-gameOfThrones = ["Game of Thrones", "Red Wedding"]
+// breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul"]
+// madMen = ["Mad Men", "Don Draper"]
+// gameOfThrones = ["Game of Thrones", "Red Wedding"]
 
 var selections = {};
 
-function filter(module){
-    $.each(module, function(index, keyword) {
-        console.log("Keyword we're filtering: " + keyword)
-    $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h2:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "h3:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h3:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "p:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "p:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "p:contains('" + keyword + "') > a " ).css("color", "black");
-})
-}
-
-
+// function filter(module){
+//     $.each(module, function(index, keyword) {
+//         console.log("Keyword we're filtering: " + keyword)
+//     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
+//     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
+//     $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
+//     $( "h2:contains('" + keyword + "')" ).css( "color", "black" );
+//     $( "h3:contains('" + keyword + "')" ).css( "background", "black" );
+//     $( "h3:contains('" + keyword + "')" ).css( "color", "black" );
+//     $( "p:contains('" + keyword + "')" ).css( "background", "black" );
+//     $( "p:contains('" + keyword + "')" ).css( "color", "black" );
+//     $( "p:contains('" + keyword + "') > a " ).css("color", "black");
+// })
+// }
 
 window.addEventListener('load', function(evt) {
 
@@ -31,17 +29,17 @@ window.addEventListener('load', function(evt) {
 
     if(clicked.checked === true){
         var name = clicked["name"]
-        var selection = clicked["value"]
+        var selection = clicked["value"].split(",")
         console.log("Adding to selection array: " + selection);
         // debugger
         selections[name] = selection;
         // selections.push(selection);
         console.log(selections + " hash");
-        debugger
+        // debugger
         }else{
         // var index = selections.indexOf(selection);
         var name = clicked["name"]
-        var selection = clicked["value"]
+        var selection = clicked["value"].split(",")
         delete selections[name]
         // selections.splice(index, 1);
         // console.log(selections);
@@ -55,9 +53,24 @@ window.addEventListener('load', function(evt) {
 // alert( key + ": " + value );
 // });
 
-    $.each( selections, function( key, value ) {
-            console.log( key + ":" + value );
-    });
+    // $.each( selections, function( key, value ) {
+    //         allKeywords = []
+    //         console.log( key + ":" + value );
+    //         console.log("we're about to filter" + value)
+    //         allKeywords.push(value.split(','));
+    //         console.log("All keywords array: " + allKeywords)
+    //     debugger
+    //     $( "h1:contains('" + value + "')" ).css( "background", "black" );
+    //     $( "h1:contains('" + value + "')" ).css( "color", "black" );
+    //     $( "h2:contains('" + value + "')" ).css( "background", "black" );
+    //     $( "h2:contains('" + value + "')" ).css( "color", "black" );
+    //     $( "h3:contains('" + value + "')" ).css( "background", "black" );
+    //     $( "h3:contains('" + value + "')" ).css( "color", "black" );
+    //     $( "p:contains('" + value + "')" ).css( "background", "black" );
+    //     $( "p:contains('" + value + "')" ).css( "color", "black" );
+    //     $( "p:contains('" + value + "') > a " ).css("color", "black");
+    //     debugger
+    // });
 
     // $.each(selections, function(index, selection){
     //     console.log(selection + " that we're about to filter");
