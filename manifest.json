@@ -20,8 +20,5 @@
     "activeTab",
     "http://*/",
     "https://*/"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  }
+  ]
 }

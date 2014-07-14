@@ -2,8 +2,8 @@
  *
  * CONTENT SCRIPT
  *
- * This is injected into every page, and it communicates with
- * the background page to hide stuff on each tab.
+ * This is injected into every page, and each page's content script
+ * relies on popup.js to tell it when to update its filters.
  */
 
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
