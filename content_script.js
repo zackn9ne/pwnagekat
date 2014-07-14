@@ -48,29 +48,46 @@ window.addEventListener('load', function(evt) {
     //array is saved correctly here!
     console.log("These are in the selections array: " + selections);
 
-
+//example of iterating a hash -->
 // $.each( obj, function( key, value ) {
 // alert( key + ": " + value );
 // });
+     allKeywords = []
+    $.each( selections, function( key, value ) {
+            console.log( key + ":" + value );
+            allKeywords.push(value);
+            console.log("All keywords array: " + allKeywords)
+            });
 
-    // $.each( selections, function( key, value ) {
-    //         allKeywords = []
-    //         console.log( key + ":" + value );
-    //         console.log("we're about to filter" + value)
-    //         allKeywords.push(value.split(','));
-    //         console.log("All keywords array: " + allKeywords)
-    //     debugger
-    //     $( "h1:contains('" + value + "')" ).css( "background", "black" );
-    //     $( "h1:contains('" + value + "')" ).css( "color", "black" );
-    //     $( "h2:contains('" + value + "')" ).css( "background", "black" );
-    //     $( "h2:contains('" + value + "')" ).css( "color", "black" );
-    //     $( "h3:contains('" + value + "')" ).css( "background", "black" );
-    //     $( "h3:contains('" + value + "')" ).css( "color", "black" );
-    //     $( "p:contains('" + value + "')" ).css( "background", "black" );
-    //     $( "p:contains('" + value + "')" ).css( "color", "black" );
-    //     $( "p:contains('" + value + "') > a " ).css("color", "black");
-    //     debugger
-    // });
+    var kwArray = allKeywords.reduce(function(a, b){
+        return a.concat(b);
+    });
+
+    console.log(kwArray);
+
+
+
+$.each(kwArray, function(index, keyword) {
+  debugger
+    $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
+    $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
+    $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
+    $( "h2:contains('" + keyword + "')" ).css( "color", "black" );
+    $( "h3:contains('" + keyword + "')" ).css( "background", "black" );
+    $( "h3:contains('" + keyword + "')" ).css( "color", "black" );
+    $( "p:contains('" + keyword + "')" ).css( "background", "black" );
+    $( "p:contains('" + keyword + "')" ).css( "color", "black" );
+    $( "p:contains('" + keyword + "') > a " ).css("color", "black");
+    console.log("filtering!")
+})
+
+    // console.log( "we're about to filter this: " + kwArray)
+    // debugger
+
+
+
+
+
 
     // $.each(selections, function(index, selection){
     //     console.log(selection + " that we're about to filter");
@@ -97,7 +114,6 @@ window.addEventListener('load', function(evt) {
 // $.each(selections, function(selected))
 
 // $.each(breakingBad, function(index, keyword) {
-//   // debugger
 //     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
 //     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
 //     $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
