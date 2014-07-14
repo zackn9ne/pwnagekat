@@ -21,6 +21,8 @@ var selections = {};
 
 window.addEventListener('load', function(evt) {
 
+
+
   $('input:checkbox').change(function(){
     console.log(this + " is what you just clicked")
 
@@ -65,10 +67,12 @@ window.addEventListener('load', function(evt) {
 
     console.log(kwArray);
 
+chrome.tabs.executeScript(null,{code:"document.body.style.backgroundColor='yellow'"});
+// chrome.tabs.executeScript(null, {code: "filterKeywords(kwArray)"})
 
-
-$.each(kwArray, function(index, keyword) {
-  debugger
+function filterKeywords(kwArray){
+    $.each(kwArray, function(index, keyword) {
+  // debugger
     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
     $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
@@ -79,7 +83,7 @@ $.each(kwArray, function(index, keyword) {
     $( "p:contains('" + keyword + "')" ).css( "color", "black" );
     $( "p:contains('" + keyword + "') > a " ).css("color", "black");
     console.log("filtering!")
-})
+})}
 
     // console.log( "we're about to filter this: " + kwArray)
     // debugger
