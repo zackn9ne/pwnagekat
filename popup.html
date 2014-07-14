@@ -2,19 +2,21 @@
 <head>
   <title>Censr</title>
   <link href="popup.css" media="all" rel="stylesheet" type="text/css">
-  <script src="jquery.js"></script>
-  <script src="content_script.js"></script>
+
 </head>
 
 <body>
 
 <h3>SpoilerCat: Pouncing On Spoilers!</h3>
 
-<form>
-<input type="checkbox" name="madMen" value="Mad Men, Don Draper" >Mad Men <br/>
-<input type="checkbox" name="breakingBad" value="Breaking Bad, Walter, Walter White, Skyler, Jesse Pinkman, Walt, Jesse, Saul">Breaking Bad <br/>
-<input type="checkbox" name="gameOfThrones" value="Game of Thrones, Red Wedding">Game Of Thrones<br/>
+<form id="selectors">
+<input type="checkbox" id="madMen">Mad Men <br/>
+<input type="checkbox" id="breakingBad">Breaking Bad <br/>
+<input type="checkbox" id="gameOfThrones">Game Of Thrones<br/>
 </form>
+
+<script src="jquery.js"></script>
+<script src="popup.js"></script>
 
 </body>
 </html>

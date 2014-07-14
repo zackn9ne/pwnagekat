@@ -1,28 +1,27 @@
 {
-    "manifest_version": 2,
-    "name": "Testing Extension Functions",
-    "description": "Testing different features for my student project.",
-    "version": "0.1",
-    "content_scripts":
-    [
-        {
-            "matches": ["*://*/*"],
-            "js": ["jquery.js", "content_script.js"],
-            "run_at": "document_end"
-        }
-    ],
-      "browser_action": {
-      "default_icon": "cheshire_cat_16.png",
-      "default_popup": "popup.html",
-      "default_title": "SpoilerCat: Pounce on spoilers!"
-   },
-    "permissions": [
-        "tabs",
-        "http://*/",
-        "https://*/"
-    ],
-   "background": {
-      "persistent": false,
-      "scripts": [ "background.js" ]
-   }
+  "manifest_version": 2,
+  "name": "SpoilerCat",
+  "description": "Saving you from the internet!",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["jquery.js", "spoiler_filter.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "cheshire_cat_16.png",
+    "default_popup": "popup.html",
+    "default_title": "SpoilerCat"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://*/",
+    "https://*/"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
 }
