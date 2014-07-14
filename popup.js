@@ -22,18 +22,20 @@ $('input:checkbox').change(function(){
   // this is where checkbox keyword sets are added and removed as preferences
   // made it a hash so it can delete by name key, no matter where it is in the hash
   if(clicked.checked === true){
+
+      console.log(clicked.id);
+      localStorage["selection"] = clicked.id;
       selections[clicked.id] = keywords[clicked.id];
   } else {
       delete selections[clicked.id]
   }
 
-  // combines selected keywords into an array in order to iterate through it
+  // combines ALL selected keywords into an array in order to iterate through it
   allKeywords = []
   $.each(selections, function(key, value) {
       allKeywords = allKeywords.concat(value);
   });
 
-  console.log(allKeywords);
     // send to the content scripts
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {

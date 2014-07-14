@@ -3,6 +3,11 @@
   "name": "SpoilerCat",
   "description": "Saving you from the internet!",
   "version": "0.1",
+  "icons": {
+      "128": "cheshire_cat_128.png",
+      "16": "cheshire_cat_16.png",
+      "48": "cheshire_cat_48.png"
+   },
   "content_scripts": [
     {
       "matches": ["*://*/*"],
