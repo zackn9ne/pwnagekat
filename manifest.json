@@ -20,5 +20,9 @@
         "tabs",
         "http://*/",
         "https://*/"
-    ]
+    ],
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   }
 }

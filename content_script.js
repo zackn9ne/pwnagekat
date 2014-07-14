@@ -1,59 +1,43 @@
 // breakingBad = ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul"]
-// madMen = ["Mad Men", "Don Draper"]
-// gameOfThrones = ["Game of Thrones", "Red Wedding"]
+//moved above to HTML values, but leaving this here to test the filter at bottom of page
 
+//defining the selections container
 var selections = {};
 
-// function filter(module){
-//     $.each(module, function(index, keyword) {
-//         console.log("Keyword we're filtering: " + keyword)
-//     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
-//     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
-//     $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
-//     $( "h2:contains('" + keyword + "')" ).css( "color", "black" );
-//     $( "h3:contains('" + keyword + "')" ).css( "background", "black" );
-//     $( "h3:contains('" + keyword + "')" ).css( "color", "black" );
-//     $( "p:contains('" + keyword + "')" ).css( "background", "black" );
-//     $( "p:contains('" + keyword + "')" ).css( "color", "black" );
-//     $( "p:contains('" + keyword + "') > a " ).css("color", "black");
-// })
-// }
+//getting the tabId from background.js, to use when injecting filter... I think???
+var tabId;
+chrome.extension.sendMessage({ type: 'getTabId' }, function(res) {
+    tabId = res.tabId;
+});
+
 
 window.addEventListener('load', function(evt) {
 
-
-
   $('input:checkbox').change(function(){
     console.log(this + " is what you just clicked")
-
     //saving clicked element here
     var clicked = this
 
+//this is where checkbox keyword sets are added and removed as preferences
+//made it a hash so it can delete by name key, no matter where it is in the hash
     if(clicked.checked === true){
         var name = clicked["name"]
         var selection = clicked["value"].split(",")
         console.log("Adding to selection array: " + selection);
         // debugger
         selections[name] = selection;
-        // selections.push(selection);
         console.log(selections + " hash");
         // debugger
         }else{
-        // var index = selections.indexOf(selection);
         var name = clicked["name"]
         var selection = clicked["value"].split(",")
         delete selections[name]
-        // selections.splice(index, 1);
         // console.log(selections);
         }
 
-    //array is saved correctly here!
     console.log("These are in the selections array: " + selections);
 
-//example of iterating a hash -->
-// $.each( obj, function( key, value ) {
-// alert( key + ": " + value );
-// });
+//combines selected keywords into an array in order to iterate through it
      allKeywords = []
     $.each( selections, function( key, value ) {
             console.log( key + ":" + value );
@@ -61,61 +45,24 @@ window.addEventListener('load', function(evt) {
             console.log("All keywords array: " + allKeywords)
             });
 
+//finally flattening the array of arrays for an array of one list of all selected checkbox keywords
     var kwArray = allKeywords.reduce(function(a, b){
         return a.concat(b);
     });
 
-    console.log(kwArray);
+    console.log("Sending to the filter: " + kwArray);
 
-chrome.tabs.executeScript(null,{code:"document.body.style.backgroundColor='yellow'"});
-// chrome.tabs.executeScript(null, {code: "filterKeywords(kwArray)"})
-
-function filterKeywords(kwArray){
-    $.each(kwArray, function(index, keyword) {
-  // debugger
-    $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h2:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "h3:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h3:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "p:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "p:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "p:contains('" + keyword + "') > a " ).css("color", "black");
-    console.log("filtering!")
-})}
-
-    // console.log( "we're about to filter this: " + kwArray)
-    // debugger
+    chrome.tabs.executeScript(tabId, { file: 'filter.js'}, function(){
+    console.log("triggered!")
+  })
 
 
-
-
-
-
-    // $.each(selections, function(index, selection){
-    //     console.log(selection + " that we're about to filter");
-    //     // if(selection === "madMen")
-    //     // madMen = ["Mad Men", "Don Draper"]
-    //     // module = madMen
-    //     // debugger
-    //     filter(module);
-    // })
-    // return selections;
     });
-  //but not here :(
-   // console.log("One scope up, these are in selections array: " + selections);
-
-   //saving nice checked/unchecked syntax
-    // if(this.checked)
-    //     console.log( $( "input:checked" ).val() + " checked!" );
-    // else
-    //     console.log('not checked');
-    // });
 });
 
 
-// $.each(selections, function(selected))
+//Original filter function below, leaving it here because if you uncomment the breakingBad array at top of page
+//it demonstrates proof of concept for the filter
 
 // $.each(breakingBad, function(index, keyword) {
 //     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
