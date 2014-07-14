@@ -8,6 +8,14 @@
 
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
+function resetStyle(){
+    $( "h1" ).removeAttr( 'style' );
+    $( "h2" ).removeAttr( 'style' );
+    $( "h3" ).removeAttr( 'style' );
+    $( "p" ).removeAttr( 'style' );
+    $( "p > a" ).removeAttr( 'style' );
+}
+
 function filterKeyword(keyword) {
     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
@@ -25,6 +33,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     console.log("from", sender);
 
     if (message.method === 'runFilter') {
+        resetStyle();
         $.each(message.allKeywords, filterKeyword);
     }
 });
