@@ -10,14 +10,10 @@ var persistingKeywords = $.parseJSON(localStorage.getItem('savedKeywords'))
 console.log("Carrying around these kws: " + persistingKeywords);
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
-for (var i = 0; i < localStorage.length; i++){
-console.log("In browser storage: " + localStorage.getItem(localStorage.key(i)))
-}
-
-$.each(persistingKeywords, function(key, value) {
-    console.log(value)
-      filterKeyword(value);
-  });
+// $.each(persistingKeywords, function(key, value) {
+//     console.log(value)
+//       filterKeyword(value);
+//   });
 
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
@@ -27,17 +23,17 @@ function resetStyle(){
     $( "p > a" ).removeAttr( 'style' );
 }
 
-function filterKeyword(keyword) {
-    console.log("Filtering kw: " + keyword)
-    $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h2:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "h3:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "h3:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "p:contains('" + keyword + "')" ).css( "background", "black" );
-    $( "p:contains('" + keyword + "')" ).css( "color", "black" );
-    $( "p:contains('" + keyword + "') > a " ).css("color", "black");
+function filterKeyword(keyword, value) {
+    console.log("Filtering kw: " + value)
+    $( "h1:contains('" + value + "')" ).css( "background", "black" );
+    $( "h1:contains('" + value + "')" ).css( "color", "black" );
+    $( "h2:contains('" + value + "')" ).css( "background", "black" );
+    $( "h2:contains('" + value + "')" ).css( "color", "black" );
+    $( "h3:contains('" + value + "')" ).css( "background", "black" );
+    $( "h3:contains('" + value + "')value" ).css( "color", "black" );
+    $( "p:contains('" + value + "')" ).css( "background", "black" );
+    $( "p:contains('" + value + "')" ).css( "color", "black" );
+    $( "p:contains('" + value + "') > a " ).css("color", "black");
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
