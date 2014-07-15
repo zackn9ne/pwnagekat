@@ -61,11 +61,11 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
         // // console.log("Received these from popup.js: " + message.allKeywords)
         $.each(message.allKeywords, filterKeyword);
 
-        // chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
-        //     chrome.storage.sync.get("savedKeywords", function(data) {
-        //         console.log("NOW IN LOCAL STORAGE: ", data);
-        //         });
-        //     });
+        chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
+            chrome.storage.sync.get("savedKeywords", function(data) {
+                console.log("NOW IN LOCAL STORAGE: ", data);
+                });
+            });
         }
     });
 
