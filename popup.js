@@ -33,6 +33,7 @@ $('input:checkbox').change(function(){
   allKeywords = []
   $.each(selections, function(key, value) {
       allKeywords = allKeywords.concat(value);
+      console.log("Sening to filter: " + allKeywords)
   });
 
     // send to the content scripts

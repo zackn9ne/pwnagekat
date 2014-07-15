@@ -10,6 +10,10 @@ var persistingKeywords = $.parseJSON(localStorage.getItem('savedKeywords'))
 console.log("Carrying around these kws: " + persistingKeywords);
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
+for (var i = 0; i < localStorage.length; i++){
+console.log("In browser storage: " + localStorage.getItem(localStorage.key(i)))
+}
+
 $.each(persistingKeywords, function(key, value) {
     console.log(value)
       filterKeyword(value);
@@ -24,6 +28,7 @@ function resetStyle(){
 }
 
 function filterKeyword(keyword) {
+    console.log("Filtering kw: " + keyword)
     $( "h1:contains('" + keyword + "')" ).css( "background", "black" );
     $( "h1:contains('" + keyword + "')" ).css( "color", "black" );
     $( "h2:contains('" + keyword + "')" ).css( "background", "black" );
@@ -46,6 +51,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     if (message.method === 'runFilter') {
         resetStyle();
         $.each(message.allKeywords, filterKeyword);
+        console.log("Received these from popup.js: " + message.allKeywords)
         var savedKeywords = message.allKeywords;
         console.log("saving to local: " + savedKeywords);
         localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords));
