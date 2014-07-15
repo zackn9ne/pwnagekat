@@ -19,11 +19,10 @@ var selections = {};
 $('input:checkbox').change(function(){
   var clicked = this;
 
+
   // this is where checkbox keyword sets are added and removed as preferences
   // made it a hash so it can delete by name key, no matter where it is in the hash
   if(clicked.checked === true){
-
-      console.log(clicked.id);
       localStorage["selection"] = clicked.id;
       selections[clicked.id] = keywords[clicked.id];
   } else {

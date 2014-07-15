@@ -6,7 +6,14 @@
  * relies on popup.js to tell it when to update its filters.
  */
 
+var persistingKeywords = $.parseJSON(localStorage.getItem('savedKeywords'))
+console.log("Carrying around these kws: " + persistingKeywords);
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
+
+$.each(persistingKeywords, function(key, value) {
+    console.log(value)
+      filterKeyword(value);
+  });
 
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
@@ -32,13 +39,24 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     console.log("received message", message);
     console.log("from", sender);
 
-    if (message.method === 'loadFilter') {
-        $.each(message.allKeywords, filterKeyword);
-    }
+    // if (message.method === 'loadFilter') {
+    //     $.each(message.allKeywords, filterKeyword);
+    // }
 
     if (message.method === 'runFilter') {
         resetStyle();
         $.each(message.allKeywords, filterKeyword);
+        var savedKeywords = message.allKeywords;
+        console.log("saving to local: " + savedKeywords);
+        localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords));
     }
 
 });
+
+// localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords))
+// localStorage.getItem('savedKeywords')
+
+//how to check local storage:
+// for (var i = 0; i < localStorage.length; i++){
+//    console.log(localStorage.getItem(localStorage.key(i)))
+// }

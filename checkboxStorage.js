@@ -10,34 +10,52 @@ $(document).ready(function() {
       }
   });
 
-  var workingKeywords = {};
-
   $("input[id='breakingBad']").click(function () {
 
       if ($(this).is(":checked")) {
           localStorage.setItem("breakingBad", $(this).val());
-          workingKeywords["breakingBad"] = keywords["breakingBad"]
       } else {
           localStorage.removeItem("breakingBad");
-          delete workingKeywords["breakingBad"]
+      }
+    });
+
+  $(function () {
+      var data = localStorage.getItem("madMen");
+
+      if (data !== null) {
+          $("input[id='madMen']").attr("checked", "checked");
       }
   });
-  //   allKeywords = []
-  //   $.each(workingKeywords, function(key, value) {
-  //       allKeywords = allKeywords.concat(value);
-  //       console.log(allKeywords);
-  //   });
 
+  $("input[id='madMen']").click(function () {
 
-  // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  //   chrome.tabs.sendMessage(tabs[0].id, {
-  //     method: 'loadFilter
-  //     allKeywords: allKeywords
-  //   });
-  //   console.log("triggered!")
-  // });
+      if ($(this).is(":checked")) {
+          localStorage.setItem("madMen", $(this).val());
+      } else {
+          localStorage.removeItem("madMen");
+      }
+    });
+
+  $(function () {
+      var data = localStorage.getItem("gameOfThrones");
+
+      if (data !== null) {
+          $("input[id='gameOfThrones']").attr("checked", "checked");
+      }
+  });
+
+  $("input[id='gameOfThrones']").click(function () {
+
+      if ($(this).is(":checked")) {
+          localStorage.setItem("gameOfThrones", $(this).val());
+      } else {
+          localStorage.removeItem("gameOfThrones");
+      }
+    });
+
 
 });
+
 
 
 
