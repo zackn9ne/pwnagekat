@@ -25,13 +25,15 @@ $('input:checkbox').change(function(){
       localStorage["selection"] = clicked.id;
       selections[clicked.id] = keywords[clicked.id];
   } else {
-      delete selections[clicked.id]
+      delete selections[clicked.id];
+      chrome.storage.sync.remove(clicked.id, function(){
+        console.log("Removed from storage: " + clicked.id);
+      });
   }
 
   allKeywords = []
   $.each(selections, function(key, value) {
       allKeywords = allKeywords.concat(value);
-      console.log("Sening to filter: " + allKeywords)
   });
 
  /// COMMUNICATING WITH spoilerfilter.js, sending keywords to run in filter

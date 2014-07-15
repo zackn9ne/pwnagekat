@@ -12,10 +12,7 @@ chrome.storage.sync.get("savedKeywords", function(data){
     console.log("FETCHING: ", data["savedKeywords"]);
         var savedKeywords = data["savedKeywords"];
             $.each(savedKeywords, filterKeyword);
-                return savedKeywords;
             });
-
-// console.log("SavedKeywords returned: " + savedKeywords)
 
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
@@ -44,26 +41,35 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 
     if (message.method === 'runFilter') {
         resetStyle();
-        chrome.storage.sync.get("savedKeywords", function(data){
-            array1 =  data["savedKeywords"];
-            console.log("Saved keywords: " + array1)
-            array2 = message.allKeywords
-            console.log("Keywords from new click: " + array2)
+        // chrome.storage.sync.get("savedKeywords", function(data){
+        //     var array1 =  data["savedKeywords"];
+        //     console.log("Array1, from storage: " + array1)
+        //     var array2 = message.allKeywords
+        //     console.log("Array2, from clicks: " + array2)
+        //         if(array1.length !== 0 && array2.length !== 0 ){
+        //             savedKeywords = array1.concat(array2);
 
-            var array3 = array1.concat(array2);
-        //     debugger
-        console.log("Received these from popup.js: " + message.allKeywords)
+        //             $.each(savedKeywords, filterKeyword);
+
+        //             chrome.storage.sync.set({'savedKeywords': savedKeywords}, function() {
+        //                 chrome.storage.sync.get("savedKeywords", function(data) {
+        //                     console.log("NOW IN LOCAL STORAGE: ", data);
+        //                 });
+        //             });
+        //         }else{
+
+        // // console.log("Received these from popup.js: " + message.allKeywords)
         $.each(message.allKeywords, filterKeyword);
-
 
         chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
             chrome.storage.sync.get("savedKeywords", function(data) {
                 console.log("NOW IN LOCAL STORAGE: ", data);
                 });
             });
-        });
+        }
+    });
 
-    }
+    // }
 
-});
+// });
 
