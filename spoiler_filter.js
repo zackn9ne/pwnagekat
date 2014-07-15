@@ -6,14 +6,11 @@
  * relies on popup.js to tell it when to update its filters.
  */
 
-var persistingKeywords = $.parseJSON(localStorage.getItem('savedKeywords'))
-console.log("Carrying around these kws: " + persistingKeywords);
+// var persistingKeywords = $.parseJSON(localStorage.getItem('savedKeywords'))
+// console.log("Carrying around these kws: " + persistingKeywords);
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
-// $.each(persistingKeywords, function(key, value) {
-//     console.log(value)
-//       filterKeyword(value);
-//   });
+// $.each(persistingKeywords, filterKeyword);
 
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
@@ -48,9 +45,16 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         resetStyle();
         $.each(message.allKeywords, filterKeyword);
         console.log("Received these from popup.js: " + message.allKeywords)
-        var savedKeywords = message.allKeywords;
-        console.log("saving to local: " + savedKeywords);
-        localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords));
+
+        // var savedKeywords = message.allKeywords;
+        // console.log("saving to local: " + savedKeywords);
+
+        chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
+            chrome.storage.sync.get("savedKeywords", function(data) {
+                console.log("NOW IN LOCAL STORAGE: ", data);
+            });
+        });
+        // localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords));
     }
 
 });
