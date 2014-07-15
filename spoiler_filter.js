@@ -6,17 +6,17 @@
  * relies on popup.js to tell it when to update its filters.
  */
 
-// var persistingKeywords = $.parseJSON(localStorage.getItem('savedKeywords'))
-// console.log("Carrying around these kws: " + persistingKeywords);
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
 chrome.storage.sync.get("savedKeywords", function(data){
     console.log("FETCHING: ", data["savedKeywords"]);
         var savedKeywords = data["savedKeywords"];
             $.each(savedKeywords, filterKeyword);
+                return savedKeywords;
             });
 
-// console.log("returned as a varialble from chrome: " + persistingKeywords);
+// console.log("SavedKeywords returned: " + savedKeywords)
+
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
     $( "h2" ).removeAttr( 'style' );
@@ -38,36 +38,32 @@ function filterKeyword(keyword, value) {
     $( "p:contains('" + value + "') > a " ).css("color", "black");
 }
 
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     console.log("received message", message);
     console.log("from", sender);
 
-    // if (message.method === 'loadFilter') {
-    //     $.each(message.allKeywords, filterKeyword);
-    // }
-
     if (message.method === 'runFilter') {
         resetStyle();
-        $.each(message.allKeywords, filterKeyword);
-        console.log("Received these from popup.js: " + message.allKeywords)
+        chrome.storage.sync.get("savedKeywords", function(data){
+            array1 =  data["savedKeywords"];
+            console.log("Saved keywords: " + array1)
+            array2 = message.allKeywords
+            console.log("Keywords from new click: " + array2)
 
-        // var savedKeywords = message.allKeywords;
-        // console.log("saving to local: " + savedKeywords);
+            var array3 = array1.concat(array2);
+        //     debugger
+        console.log("Received these from popup.js: " + message.allKeywords)
+        $.each(message.allKeywords, filterKeyword);
+
 
         chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
             chrome.storage.sync.get("savedKeywords", function(data) {
                 console.log("NOW IN LOCAL STORAGE: ", data);
+                });
             });
         });
-        // localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords));
+
     }
 
 });
 
-// localStorage.setItem('savedKeywords', JSON.stringify(savedKeywords))
-// localStorage.getItem('savedKeywords')
-
-//how to check local storage:
-// for (var i = 0; i < localStorage.length; i++){
-//    console.log(localStorage.getItem(localStorage.key(i)))
-// }
