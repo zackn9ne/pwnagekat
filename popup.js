@@ -10,7 +10,7 @@ console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
 
 /// KEYWORD LIBRARY
 var keywords = {
-    madMen: ["Mad Men", "Don Draper"],
+    madMen: ["Mad Men", "Don Draper", "MadMen", "Peggy Olsen" ],
     breakingBad: ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul"],
     gameOfThrones: ["Game of Thrones", "Red Wedding"]
 };
@@ -23,6 +23,10 @@ $('input:checkbox').change(function(){
 
   if(clicked.checked === true){
       localStorage["selection"] = clicked.id;
+      chrome.storage.sync.set({'savedKeywords': keywords[clicked.id]}, function() {
+        console.log("Added: " + keywords[clicked.id]);
+      })
+
       selections[clicked.id] = keywords[clicked.id];
   } else {
       delete selections[clicked.id];
