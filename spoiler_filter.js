@@ -10,8 +10,13 @@
 // console.log("Carrying around these kws: " + persistingKeywords);
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
-// $.each(persistingKeywords, filterKeyword);
+chrome.storage.sync.get("savedKeywords", function(data){
+    console.log("FETCHING: ", data["savedKeywords"]);
+        var savedKeywords = data["savedKeywords"];
+            $.each(savedKeywords, filterKeyword);
+            });
 
+// console.log("returned as a varialble from chrome: " + persistingKeywords);
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
     $( "h2" ).removeAttr( 'style' );
