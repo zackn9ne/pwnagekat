@@ -8,14 +8,7 @@
 
 console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
 
-/// KEYWORD LIBRARY
-var keywords = {
-    madMen: ["Mad Men", "Don Draper", "MadMen", "Peggy Olsen" ],
-    breakingBad: ["Breaking Bad", "Walter White", "Jesse Pinkman"],
-    gameOfThrones: ["Game of Thrones", "Red Wedding"]
-};
-
-
+//How we keep chrome storage in synch!
 var allVals = [];
 function updateKeywords(){
   allVals = []
@@ -27,6 +20,14 @@ function updateKeywords(){
      }
   });
 }
+
+/// KEYWORD LIBRARY
+var keywords = {
+    madMen: ["Mad Men", "Don Draper", "MadMen", "Peggy Olsen" ],
+    breakingBad: ["Breaking Bad", "Walter White", "Jesse Pinkman"],
+    gameOfThrones: ["Game of Thrones", "Red Wedding"]
+};
+
 /// INPUT CONTROL
 var selections = {};
 
@@ -34,24 +35,12 @@ $('input:checkbox').change(function(){
   var clicked = this;
 
   if(clicked.checked === true){
-      // localStorage["selection"] = clicked.id;
-      // chrome.storage.sync.set({'savedKeywords': keywords[clicked.id]}, function() {
-      //   console.log("Added: " + keywords[clicked.id]);
-      // })
       selections[clicked.id] = keywords[clicked.id];
   } else {
       delete selections[clicked.id];
-      // chrome.storage.sync.remove(keywords[clicked.id], function(){
-      //   console.log("Removed from storage: " + keywords[clicked.id]);
-      // });
   }
 
   updateKeywords();
-  // debugger
- // $(function() {
- //   $('#c_b input').click(updateTextArea);
- //   updateTextArea();
- // });
 
   allKeywords = []
   $.each(allVals, function(key, value) {

@@ -1,3 +1,11 @@
+/* checkboxStorage.js
+ *
+ * POPUP SCRIPT
+ *
+ * This is storing checkbox values in LOCALSTORAGE (not chromestorage!)
+ * However, popup.js could NOT tally checkbox values without this working.
+ */
+
 console.log("CHECKBOXES ARE PERSISTANT NOW!");
 
 for (var i = 0; i < localStorage.length; i++){
