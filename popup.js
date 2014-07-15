@@ -11,7 +11,7 @@ console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
 /// KEYWORD LIBRARY
 var keywords = {
     madMen: ["Mad Men", "Don Draper", "MadMen", "Peggy Olsen" ],
-    breakingBad: ["Breaking Bad", "Walter", "Walter White", "Skyler", "Jesse Pinkman", "Walt", "Jesse", "Saul"],
+    breakingBad: ["Breaking Bad", "Walter White", "Jesse Pinkman"],
     gameOfThrones: ["Game of Thrones", "Red Wedding"]
 };
 
@@ -27,7 +27,6 @@ function updateKeywords(){
      }
   });
 }
-
 /// INPUT CONTROL
 var selections = {};
 
@@ -48,15 +47,16 @@ $('input:checkbox').change(function(){
   }
 
   updateKeywords();
-  debugger
+  // debugger
  // $(function() {
  //   $('#c_b input').click(updateTextArea);
  //   updateTextArea();
  // });
 
   allKeywords = []
-  $.each(selections, function(key, value) {
+  $.each(allVals, function(key, value) {
       allKeywords = allKeywords.concat(value);
+      console.log(allKeywords)
   });
 
  /// COMMUNICATING WITH spoilerfilter.js, sending keywords to run in filter
