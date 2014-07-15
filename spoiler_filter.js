@@ -32,8 +32,13 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     console.log("received message", message);
     console.log("from", sender);
 
+    if (message.method === 'loadFilter') {
+        $.each(message.allKeywords, filterKeyword);
+    }
+
     if (message.method === 'runFilter') {
         resetStyle();
         $.each(message.allKeywords, filterKeyword);
     }
+
 });

@@ -1,7 +1,7 @@
+console.log("CHECKBOXES ARE PERSISTANT NOW!");
+
 $(document).ready(function() {
-
  // console.log("Loaded options page!")
-
   $(function () {
       var data = localStorage.getItem("breakingBad");
 
@@ -22,8 +22,6 @@ $(document).ready(function() {
           delete workingKeywords["breakingBad"]
       }
   });
-
-});
   //   allKeywords = []
   //   $.each(workingKeywords, function(key, value) {
   //       allKeywords = allKeywords.concat(value);
@@ -33,11 +31,14 @@ $(document).ready(function() {
 
   // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   //   chrome.tabs.sendMessage(tabs[0].id, {
-  //     method: 'runFilter',
+  //     method: 'loadFilter
   //     allKeywords: allKeywords
   //   });
   //   console.log("triggered!")
   // });
+
+});
+
 
 
 
