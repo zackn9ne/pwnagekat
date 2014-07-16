@@ -3,7 +3,15 @@
                 overflow-x: scroll;
                 font-family: Arial, sans-serif;
                 font-size: 14px;
+                text-align: left;
 
             }
 
+.column{
+  width:200px;
+  float:left;
+}
 
+h4.left{
+  text-align: left;
+}

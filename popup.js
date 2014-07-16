@@ -28,7 +28,11 @@ var keywords = {
     gameOfThrones: ["Game of Thrones", "Red Wedding", "game of thrones", "GoT", "#gameofthrones", "#GoT"],
     goodWife: [],
     scandal: [],
-    trueBlood: []
+    trueBlood: [],
+    drWho: [],
+    yankees: [],
+    redSox: [],
+    dancingWithTheStars: []
 };
 
 /// INPUT CONTROL
