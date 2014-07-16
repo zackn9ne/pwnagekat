@@ -29,7 +29,7 @@ chrome.storage.sync.get("savedKeywords", function(data){
 function loadForGmail(){
     if(document.domain === "mail.google.com"){
         console.log("Its gmail!");
-        setInterval(function(){retrieveAndFilter()}, 800);
+        setInterval(function(){retrieveAndFilter()}, 700);
     }
 }
 
@@ -174,12 +174,12 @@ function filterKeyword(keyword, value) {
     $( ".a3s:contains('" + value + "')" ).css( "background", "black" );
     $( ".a3s:contains('" + value + "')" ).css( "color", "black" );
     $( ".a3s:contains('" + value + "') > a" ).css( "color", "black" );
+    $( "tr:contains('" + value + "')" ).css( "background", "black" );
     $( "tr:contains('" + value + "')" ).css( "color", "black" );
-    $( "tr:contains('" + value + "') > a" ).css( "color", "black" );
+    $( ".zA yO:contains('" + value + "')" ).css( "background", "black" );
     $( ".zA yO:contains('" + value + "')" ).css( "color", "black" );
-    $( ".zA yO:contains('" + value + "') > a" ).css( "color", "black" );
+    $( ".zA zE:contains('" + value + "')" ).css( "background", "black" );
     $( ".zA zE:contains('" + value + "')" ).css( "color", "black" );
-    $( ".zA zE:contains('" + value + "') > a" ).css( "color", "black" );
 }
 
 //function to listen to checkbox and send keywords to storage
