@@ -28,6 +28,15 @@ function resetStyle(){
     $( "div" ).css("background", "");
     $( "div" ).css("color", "")
     $( "div > a" ).removeAttr( 'style' );
+    $( ".userContent" ).css("background", "");
+    $( ".userContent" ).css("color", "");
+    $( ".UFICommentBody").css("background", "");
+    $( ".UFICommentBody").css("color", "");
+    // $( ".UFICommentContent").css("background", "");
+    // $( ".UFICommentContent").css("color", "");
+    $( "._5r--").css("background", "");
+    $( "._5r--").css("color", "");
+
 }
 
 function filterKeyword(keyword, value) {
@@ -52,9 +61,18 @@ function filterKeyword(keyword, value) {
     $( "li:contains('" + value + "')" ).css( "color", "black" );
     $( "li:contains('" + value + "') > a " ).css("color", "black");
 
-    // $( "div:contains('" + value + "')" ).css( "background", "black" );
     $( "div:contains('" + value + "')" ).css( "color", "black" );
     $( "div:contains('" + value + "') > a " ).css("color", "black");
+
+    //just for facebook
+    $( ".userContent:contains('" + value + "')" ).css("background", "black");
+    $( ".userContent:contains('" + value + "')" ).css("color", "black");
+    // $( ".UFICommentBody:contains('" + value + "')" ).css("color", "black");
+    // $( ".UFICommentBody:contains('" + value + "')" ).css("background", "black");
+    $( ".UFICommentContentBlock:contains('" + value + "')" ).css("color", "black");
+    $( ".UFICommentContentBlock:contains('" + value + "')" ).css("background", "black");
+    $( "._5r--:contains('" + value + "')" ).css("background", "black");
+    $( "._5r--:contains('" + value + "')" ).css("color", "black");
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
