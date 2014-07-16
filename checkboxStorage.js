@@ -8,8 +8,9 @@
 
 console.log("CHECKBOXES ARE PERSISTANT NOW!");
 
+//logging whats in local storage
 for (var i = 0; i < localStorage.length; i++){
-console.log("In checkbox storage:" + localStorage.getItem(localStorage.key(i)))
+  console.log("In checkbox storage:" + localStorage.getItem(localStorage.key(i)))
 }
 
 $(document).ready(function() {
@@ -63,7 +64,6 @@ $(document).ready(function() {
           localStorage.removeItem("gameOfThrones");
       }
     });
-
 
 });
 

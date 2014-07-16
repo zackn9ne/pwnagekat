@@ -14,6 +14,14 @@ chrome.storage.sync.get("savedKeywords", function(data){
             $.each(savedKeywords, filterKeyword);
             });
 
+function unstyleClick(){
+    $("h1").click(
+       function()
+        { $(this).removeAttr('style') }
+        // {console.log("clicked h1")}
+    )
+}
+
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
     $( "h1 > a" ).removeAttr( 'style' );
@@ -91,3 +99,8 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
         }
     });
 
+$(document).ready(function() {
+
+    unstyleClick();
+
+});
