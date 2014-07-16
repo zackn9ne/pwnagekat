@@ -8,16 +8,32 @@
 
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
+
 $(window).load(function() {
+
+ retrieveAndFilter();
+ unstyleClick();
+ loadForGmail();
+
+});
+
+//functions for page load retrieval
+function retrieveAndFilter(){
 chrome.storage.sync.get("savedKeywords", function(data){
     console.log("FETCHING: ", data["savedKeywords"]);
         var savedKeywords = data["savedKeywords"];
             $.each(savedKeywords, filterKeyword);
             });
+}
 
- unstyleClick();
-});
+function loadForGmail(){
+    if(document.domain === "mail.google.com"){
+        console.log("Its gmail!");
+        setInterval(function(){retrieveAndFilter()}, 800);
+    }
+}
 
+//functions for jquery filtering
 function unstyleClick(){
     $("h1").click(
        function()
@@ -166,6 +182,7 @@ function filterKeyword(keyword, value) {
     $( ".zA zE:contains('" + value + "') > a" ).css( "color", "black" );
 }
 
+//function to listen to checkbox and send keywords to storage
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     console.log("received message", message);
     console.log("from", sender);
@@ -176,7 +193,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 
         chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
             chrome.storage.sync.get("savedKeywords", function(data) {
-                console.log("NOW IN LOCAL STORAGE: ", data);
+                console.log("NOW IN CHROME STORAGE: ", data);
                 });
             });
         }
