@@ -8,6 +8,7 @@
 
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
+retrieveAndFilter();
 
 $(window).load(function() {
 
