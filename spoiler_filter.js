@@ -18,7 +18,52 @@ function unstyleClick(){
     $("h1").click(
        function()
         { $(this).removeAttr('style') }
-        // {console.log("clicked h1")}
+    )
+    $("h2").click(
+       function()
+        { $(this).removeAttr('style') }
+    )
+    $("h3").click(
+       function()
+        { $(this).removeAttr('style') }
+    )
+    $("p").click(
+       function()
+        { $(this).removeAttr('style') }
+    )
+    $("li").click(
+       function()
+        { $(this).removeAttr('style') }
+    )
+     $("div").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
+    )
+     $(".userContent").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
+    )
+     $(".UFICommentBody").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
+    )
+     $(".UFICommentContent").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
+    )
+     $("._5r--").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
     )
 }
 
@@ -40,8 +85,8 @@ function resetStyle(){
     $( ".userContent" ).css("color", "");
     $( ".UFICommentBody").css("background", "");
     $( ".UFICommentBody").css("color", "");
-    // $( ".UFICommentContent").css("background", "");
-    // $( ".UFICommentContent").css("color", "");
+    $( ".UFICommentContent").css("background", "");
+    $( ".UFICommentContent").css("color", "");
     $( "._5r--").css("background", "");
     $( "._5r--").css("color", "");
 
@@ -75,8 +120,8 @@ function filterKeyword(keyword, value) {
     //just for facebook
     $( ".userContent:contains('" + value + "')" ).css("background", "black");
     $( ".userContent:contains('" + value + "')" ).css("color", "black");
-    // $( ".UFICommentBody:contains('" + value + "')" ).css("color", "black");
-    // $( ".UFICommentBody:contains('" + value + "')" ).css("background", "black");
+    $( ".UFICommentBody:contains('" + value + "')" ).css("color", "black");
+    $( ".UFICommentBody:contains('" + value + "')" ).css("background", "black");
     $( ".UFICommentContentBlock:contains('" + value + "')" ).css("color", "black");
     $( ".UFICommentContentBlock:contains('" + value + "')" ).css("background", "black");
     $( "._5r--:contains('" + value + "')" ).css("background", "black");
