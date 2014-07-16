@@ -8,11 +8,15 @@
 
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
+$(window).load(function() {
 chrome.storage.sync.get("savedKeywords", function(data){
     console.log("FETCHING: ", data["savedKeywords"]);
         var savedKeywords = data["savedKeywords"];
             $.each(savedKeywords, filterKeyword);
             });
+
+ unstyleClick();
+});
 
 function unstyleClick(){
     $("h1").click(
@@ -65,6 +69,18 @@ function unstyleClick(){
           $(this).css("color", "");
          }
     )
+     $(".ha").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
+    )
+     $(".a3s").click(
+       function()
+        { $(this).css("background", "");
+          $(this).css("color", "");
+         }
+    )
 }
 
 function resetStyle(){
@@ -89,7 +105,16 @@ function resetStyle(){
     $( ".UFICommentContent").css("color", "");
     $( "._5r--").css("background", "");
     $( "._5r--").css("color", "");
-
+    $( ".ha").css("background", "");
+    $( ".ha").css("color", "");
+    $( ".a3s").css("background", "");
+    $( ".a3s").css("color", "");
+    $( "tr").css("background", "");
+    $( "tr").css("color", "");
+    $(".zA yO").css("background", "");
+    $(".zA yO").css("color", "");
+    $(".zA zE").css("background", "");
+    $(".zA zE").css("color", "");
 }
 
 function filterKeyword(keyword, value) {
@@ -126,6 +151,19 @@ function filterKeyword(keyword, value) {
     $( ".UFICommentContentBlock:contains('" + value + "')" ).css("background", "black");
     $( "._5r--:contains('" + value + "')" ).css("background", "black");
     $( "._5r--:contains('" + value + "')" ).css("color", "black");
+
+    //just for gmail
+    $( ".ha:contains('" + value + "')" ).css( "background", "black" );
+    $( ".ha:contains('" + value + "')" ).css( "color", "black" );
+    $( ".a3s:contains('" + value + "')" ).css( "background", "black" );
+    $( ".a3s:contains('" + value + "')" ).css( "color", "black" );
+    $( ".a3s:contains('" + value + "') > a" ).css( "color", "black" );
+    $( "tr:contains('" + value + "')" ).css( "color", "black" );
+    $( "tr:contains('" + value + "') > a" ).css( "color", "black" );
+    $( ".zA yO:contains('" + value + "')" ).css( "color", "black" );
+    $( ".zA yO:contains('" + value + "') > a" ).css( "color", "black" );
+    $( ".zA zE:contains('" + value + "')" ).css( "color", "black" );
+    $( ".zA zE:contains('" + value + "') > a" ).css( "color", "black" );
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
@@ -143,9 +181,3 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
             });
         }
     });
-
-$(document).ready(function() {
-
-    unstyleClick();
-
-});
