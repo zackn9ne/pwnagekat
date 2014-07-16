@@ -25,7 +25,10 @@ function updateKeywords(){
 var keywords = {
     madMen: ["Mad Men", "Don Draper", "MadMen", "Peggy Olsen", "#madmen", "mad men" ],
     breakingBad: ["Breaking Bad", "Walter White", "Jesse Pinkman", "Mike Ehrmantraut", "Saul Goodman", "Hank Schrader", "breaking bad", "#breakingbad", "Heisenberg", "#heisenberg", "#Heisenberg", "#BreakingBad"],
-    gameOfThrones: ["Game of Thrones", "Red Wedding", "game of thrones", "GoT", "#gameofthrones", "#GoT"]
+    gameOfThrones: ["Game of Thrones", "Red Wedding", "game of thrones", "GoT", "#gameofthrones", "#GoT"],
+    goodWife: [],
+    scandal: [],
+    trueBlood: []
 };
 
 /// INPUT CONTROL
