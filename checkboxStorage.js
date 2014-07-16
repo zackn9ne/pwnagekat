@@ -9,7 +9,7 @@
 console.log("CHECKBOXES ARE PERSISTANT NOW!");
 
 for (var i = 0; i < localStorage.length; i++){
-console.log("In extensions storage:" + localStorage.getItem(localStorage.key(i)))
+console.log("In checkbox storage:" + localStorage.getItem(localStorage.key(i)))
 }
 
 $(document).ready(function() {

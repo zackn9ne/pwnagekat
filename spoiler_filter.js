@@ -16,23 +16,45 @@ chrome.storage.sync.get("savedKeywords", function(data){
 
 function resetStyle(){
     $( "h1" ).removeAttr( 'style' );
+    $( "h1 > a" ).removeAttr( 'style' );
     $( "h2" ).removeAttr( 'style' );
+    $( "h2 > a" ).removeAttr( 'style' );
     $( "h3" ).removeAttr( 'style' );
+    $( "h3 > a" ).removeAttr( 'style' );
     $( "p" ).removeAttr( 'style' );
     $( "p > a" ).removeAttr( 'style' );
+    $( "li" ).removeAttr( 'style' );
+    $( "li > a" ).removeAttr( 'style' );
+    $( "div" ).css("background", "");
+    $( "div" ).css("color", "")
+    $( "div > a" ).removeAttr( 'style' );
 }
 
 function filterKeyword(keyword, value) {
     console.log("Filtering kw: " + value)
     $( "h1:contains('" + value + "')" ).css( "background", "black" );
     $( "h1:contains('" + value + "')" ).css( "color", "black" );
+    $( "h1:contains('" + value + "') > a " ).css("color", "black");
+
     $( "h2:contains('" + value + "')" ).css( "background", "black" );
     $( "h2:contains('" + value + "')" ).css( "color", "black" );
+    $( "h2:contains('" + value + "') > a " ).css("color", "black");
+
     $( "h3:contains('" + value + "')" ).css( "background", "black" );
     $( "h3:contains('" + value + "')value" ).css( "color", "black" );
+    $( "h3:contains('" + value + "') > a " ).css("color", "black");
+
     $( "p:contains('" + value + "')" ).css( "background", "black" );
     $( "p:contains('" + value + "')" ).css( "color", "black" );
     $( "p:contains('" + value + "') > a " ).css("color", "black");
+
+    $( "li:contains('" + value + "')" ).css( "background", "black" );
+    $( "li:contains('" + value + "')" ).css( "color", "black" );
+    $( "li:contains('" + value + "') > a " ).css("color", "black");
+
+    // $( "div:contains('" + value + "')" ).css( "background", "black" );
+    $( "div:contains('" + value + "')" ).css( "color", "black" );
+    $( "div:contains('" + value + "') > a " ).css("color", "black");
 }
 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
