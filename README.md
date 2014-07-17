@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 **SpoilerCat!**
 
 SpoilerCat is a Chrome browser extension that blacks out text content containing keywords THAT MIGHT RUIN YOUR FAVORITE TV SHOWS. Spoiling is an internet-enabled pandemic of horror. DO NOT LET SPOILING HAPPEN TO YOU! SpoilerCat gets to spoilers first.
@@ -61,7 +61,4 @@ As I said, this is my first Chrome extension. It's also finicky with finding con
 Future plans for SpoilerCat include expanding the keyword libraries, and also refactoring the keyword filter to run for speed (SpoilerCat has no database, and runs off of Chrome's own storage, which is neat but which I think also slows load speed for the current version.) Also, I'm going to add a pause/ disable button so you don't need to uncheck all your preferences to turn it off. 
 
 Hope you enjoy!
-=======
-project3_extension
-==================
->>>>>>> a7fc8cd72b3f1a9e11a5c1d2406bd5d313083cb3
+
