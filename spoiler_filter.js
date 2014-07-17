@@ -8,13 +8,12 @@
 
 console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
-retrieveAndFilter();
-
-$(window).load(function() {
+$( document ).ready(function() {
 
  retrieveAndFilter();
  unstyleClick();
  loadForGmail();
+ loadForFacebook()
 
 });
 
@@ -30,14 +29,14 @@ chrome.storage.sync.get("savedKeywords", function(data){
 function loadForGmail(){
     if(document.domain === "mail.google.com"){
         console.log("Its gmail!");
-        // $("body").click(function(){clearInterval(timer)})
-        // $( ".ha").click(function(){clearInterval(timer)})
-        // $( ".a3s").click(function(){clearInterval(timer)})
-        var timer = setInterval(function(){retrieveAndFilter()}, 5000);
-        if($( ".a3s").css( "background" ) === "rgb(0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box"){
-            clearInterval(timer);
-            console.log("timer cleared")
-        }
+        var timer = setInterval(function(){retrieveAndFilter()}, 800);
+    }
+}
+
+function loadForFacebook(){
+    if(document.domain === "facebook.com"){
+        console.log("Its facebook!");
+        setTimeout(function(){retrieveAndFilter()}, 1500);
     }
 }
 
