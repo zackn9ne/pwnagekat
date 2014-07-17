@@ -13,6 +13,7 @@ This app uses the **jQuery** (http://jquery.com/download/) javascript library.
 
 The deranged SpoilerCat icon is courtesy of freeicons.com's Yoo Halloween set. 
 
+General Assembly teaches the AGILE software development system. You can see my prohect planning board, including useful research links and notes on using the Google Chrome storage and tab APIs, here: https://trello.com/b/8rdw9BDE/wdi-project-3-board
 
 **How to Run SpoilerCat locally**
 
