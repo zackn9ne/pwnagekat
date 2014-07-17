@@ -187,6 +187,13 @@ function filterKeyword(keyword, value) {
     $( ".zA yO:contains('" + value + "')" ).css( "color", "black" );
     $( ".zA zE:contains('" + value + "')" ).css( "background", "black" );
     $( ".zA zE:contains('" + value + "')" ).css( "color", "black" );
+
+    //just for SERP
+    $(".tl > a:contains('" + value + "')" ).css( "color", "black" );
+    $( ".st:contains('" + value + "')" ).css( "color", "black" );
+    $( ".r > a:contains('" + value + "')" ).css( "color", "black" );
+
+
 }
 
 //function to listen to checkbox and send keywords to storage

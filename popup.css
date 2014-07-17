@@ -4,15 +4,18 @@
                 font-family: Arial, sans-serif;
                 font-size: 14px;
                 text-align: left;
+                height: 300px;
             }
 
 /*check out overflow scroll for scroll*/
+
+html{
+  height: 300px;
+}
 
 .column{
   width:200px;
   float:left;
 }
+/*
 
-h4.left{
-  text-align: left;
-}
