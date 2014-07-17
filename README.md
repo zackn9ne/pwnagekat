@@ -17,9 +17,10 @@ General Assembly teaches the AGILE software development system. You can see my p
 
 **How to Run SpoilerCat locally**
 
-SpoilerCat's app store applicationis currently pending. But never fear!
+SpoilerCat 0.1 is NOW AVAILABLE in the Chrome App store, here: 
+https://chrome.google.com/webstore/detail/spoilercat/faodijgliekffdikoidnnemndmkapaia
 
-Download the zip file from this repo. In the upper right corner of your Chrome browser, click the three orange bars and scroll down to "Tools." In the "Tools" menu, choose "Extensions." On the "Extensions" page, click the "Developer mode" checkbox on the upper right. Then choose "Load unpacked extension," and load the unzipped SpoilerCat file. Make sure SpoilerCat is enabled, and choose your show preferences!
+If you'd rather install it from github, download the zip file from this repo. In the upper right corner of your Chrome browser, click the three orange bars and scroll down to "Tools." In the "Tools" menu, choose "Extensions." On the "Extensions" page, click the "Developer mode" checkbox on the upper right. Then choose "Load unpacked extension," and load the unzipped SpoilerCat file. Make sure SpoilerCat is enabled, and choose your show preferences!
 
 Unchecking a prefence will disable the blocker for that show/ team. Unchecking all boxes disables SpoilerCat without uninstalling it. 
 
