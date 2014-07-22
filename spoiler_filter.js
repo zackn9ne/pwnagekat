@@ -10,9 +10,8 @@ console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
 $( document ).ready(function() {
 
- hideDiv();
- loadForGmail();
- loadForFacebook()
+    hideDiv();
+    youLoad();
 
 });
 
@@ -20,22 +19,21 @@ $( document ).ready(function() {
 function hideDiv(){
     $("#hplogo").hide();
     $(".yt-masthead-logo-container").hide();
-    $("#home-page-top-stories-sidebar").css("display","none !important");
+    $(".everyonelovesstackoverflow").hide();
+    $("#home-page-top-stories-sidebar").hide();
+    $("#home-page-top-stories-sidebar").attr("style","display: none !important");
     $("#feed-pyv-container").hide();
     $("#mngb").css( "border", "solid");
     $(".gb_ya").hide();
-}
-
-function resetStyle(){
-    $( "h1" ).removeAttr( 'style' );
-}
-
-function filterKeyword(keyword, value) {
-    console.log("Filtering kw: " + value)
-    $( "body:contains('" + value + "')" ).css( "background", "black" );
-
 
 }
+function youLoad(){
+    if(document.domain === "youtube.com" || document.domain === "www.youtube.com"){
+        console.log("youtube yo!");
+        $("#header").hide();
+    }
+}
+
 
 //function to listen to checkbox panel 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
@@ -49,7 +47,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
         chrome.storage.sync.set({'savedKeywords': message.allKeywords}, function() {
             chrome.storage.sync.get("savedKeywords", function(data) {
                 console.log("NOW IN CHROME STORAGE: ", data);
-                });
             });
-        }
-    });
+        });
+    }
+});
