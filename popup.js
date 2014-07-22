@@ -21,19 +21,6 @@ function updateKeywords(){
   });
 }
 
-/// KEYWORD LIBRARY
-var keywords = {
-    madMen: ["Mad Men", "Don Draper", "Peggy Olsen", "#madmen", "mad men"],
-    breakingBad: ["Breaking Bad", "Walter White", "Jesse Pinkman", "breaking bad", "#breakingbad","#heisenberg", "#BreakingBad"],
-    gameOfThrones: ["Game of Thrones", "game of thrones", "GoT", "#gameofthrones", "#GoT", "Joffrey", "Baratheon", "Lanister", "Stark"],
-    goodWife: ["The Good Wife", "the good wife", "Alicia Florrick", "Will Gardner", "Kalinda Sharma", "Diane Lockhart", "Peter Florrick", "Lockhart-Gardner", "#TheGoodWife", "#thegoodwife"],
-    scandal: ["Scandal", "Oliva Pope", "olivia pope", "#scandal", "#Scandal", "@ScandalABC", "#SummerGladiators"],
-    trueBlood: ["Sookie", "True Blood", "true blood", "Stackhouse", "Merlotte", "#TrueBlood", "#trueblood", "#truebloodhbo"],
-    drWho: ["Dr. Who", "dr who", "doctor who", "dr. who", "Dr Who", "TARDIS", "Doctor", "Twelth Doctor", "#DrWho", "#doctorwho"],
-    yankees: ["Yankees", "The Yankees", "New York", "NY", "yankees", "Yanks", "yanks", "the yanks", "#yankees"],
-    redSox: ["Red Sox", "The Redsox", "redsox", "red sox", "sox", "Sox","Boston", "#redsox"],
-    dancingWithTheStars: ["Dancing With the Stars", "dancing with the stars", "Erin Andrews", "Maksim Chermkovskiy", "DWTS", "Cheryl Burke", "@DancingABC", "#DWTS", " @CherylBurke"]
-};
 
 /// INPUT CONTROL
 var selections = {};
