@@ -1,4 +1,4 @@
-/* spoiler_filter.js
+/* kill_elements.js
  *
  * CONTENT SCRIPT
  *
@@ -25,6 +25,7 @@ function hideDiv(){
     $("#feed-pyv-container").hide();
     $("#mngb").css( "border", "solid");
     $(".gb_ya").hide();
+    $("#hplogo").hide();
 
 }
 function youLoad(){
