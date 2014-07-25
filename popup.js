@@ -8,6 +8,7 @@
 
 console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
 
+
 //How we keep chrome storage in synch!
 var allVals = [];
 function updateKeywords(){
@@ -22,25 +23,6 @@ function updateKeywords(){
 }
 
 
-/// INPUT CONTROL
-var selections = {};
-
-$('input:checkbox').change(function(){
-  var clicked = this;
-
-  if(clicked.checked === true){
-      selections[clicked.id] = keywords[clicked.id];
-  } else {
-      delete selections[clicked.id];
-  }
-
-  updateKeywords();
-
-  allKeywords = []
-  $.each(allVals, function(key, value) {
-      allKeywords = allKeywords.concat(value);
-      console.log(allKeywords)
-  });
 
  /// COMMUNICATING WITH spoilerfilter.js, sending keywords to run in filter
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
