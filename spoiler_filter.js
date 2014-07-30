@@ -23,7 +23,7 @@ function hideDiv(){
     $("#home-page-top-stories-sidebar").hide();
     $("#home-page-top-stories-sidebar").attr("style","display: none !important");
     $("#feed-pyv-container").hide();
-    $("#mngb").css( "border", "solid");
+    $("#mngb").css( "border", "solid YellowGreen");
     $(".gb_ya").hide();
 
 }
