@@ -1,4 +1,4 @@
-/* spoiler_filter.js
+/* kill_elements.js
  *
  * CONTENT SCRIPT
  *
@@ -12,27 +12,36 @@ $( document ).ready(function() {
 
     hideDiv();
     youLoad();
+    chrome.browserAction.setIcon({path: 'success_icon.png'})
 
 });
 
-//functions for jquery filtering
-function hideDiv(){
-    $("#hplogo").hide();
-    $(".yt-masthead-logo-container").hide();
-    $(".everyonelovesstackoverflow").hide();
-    $("#home-page-top-stories-sidebar").hide();
-    $("#home-page-top-stories-sidebar").attr("style","display: none !important");
-    $("#feed-pyv-container").hide();
-    $("#mngb").css( "border", "solid YellowGreen");
-    $(".gb_ya").hide();
-
-}
-function youLoad(){
-    if(document.domain === "youtube.com" || document.domain === "www.youtube.com"){
+function whatever(){
+    chrome.browserAction.onClicked({
         console.log("youtube yo!");
-        $("#header").hide();
     }
-}
+    });
+
+    //functions for jquery filtering
+    function hideDiv(){
+        $("#hplogo").hide();
+        $(".yt-masthead-logo-container").hide();
+        $(".everyonelovesstackoverflow").hide();
+        $("#home-page-top-stories-sidebar").hide();
+        $("#home-page-top-stories-sidebar").attr("style","display: none !important");
+        $("#feed-pyv-container").hide();
+        //google
+        $("#mngb").css("border", "solid YellowGreen");
+        $(".gb_ya").hide();
+        $("#hplogo").hide();
+
+    }
+    function youLoad(){
+        if(document.domain === "youtube.com" || document.domain === "www.youtube.com"){
+            console.log("youtube yo!");
+            $("#header").hide();
+        }
+    }
 
 
 //function to listen to checkbox panel 
