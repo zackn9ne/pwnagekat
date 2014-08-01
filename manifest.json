@@ -18,7 +18,7 @@
   "browser_action": {
     "default_icon": "cheshire_cat_16.png",
     "default_popup": "popup.html",
-    "default_title": "SpoilerCat"
+    "default_title": "PwnageCat"
   },
   "permissions": [
     "tabs",

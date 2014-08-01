@@ -8,27 +8,20 @@
 
 console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
 
-
-//How we keep chrome storage in synch!
-var allVals = [];
-function updateKeywords(){
-  allVals = []
-  $('input:checkbox').each(function(){
-    var currentCheckbox = this;
-     if(currentCheckbox.checked === true){
-        allVals.push(keywords[currentCheckbox.id]);
-        return allVals
-     }
-  });
-}
+var pwnGoogle = document.getElementById("pwnGoogleButton");
+//listen for onclick from ^ variable v
+pwnGoogle.onclick = function myFunction(){
+    console.log("y o hoooooo");
+};
 
 
 
- /// COMMUNICATING WITH spoilerfilter.js, sending keywords to run in filter
+
+ /// Chromes version of an ajax request
+ /// COMMUNICATING WITH kill_elements.js, sending keywords to run in filter
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       method: 'runFilter',
       allKeywords: allKeywords
     });
   });
-});

@@ -10,20 +10,13 @@ console.log("CONTENT SCRIPT ACTIVATED, NOW INFILTRATING CURRENT PAGE!");
 
 $( document ).ready(function() {
 
-    hideDiv();
-    youLoad();
-    chrome.browserAction.setIcon({path: 'success_icon.png'})
+    pwnGoogle();
 
 });
 
-function whatever(){
-    chrome.browserAction.onClicked({
-        console.log("youtube yo!");
-    }
-    });
 
     //functions for jquery filtering
-    function hideDiv(){
+    function pwnGoogle(){
         $("#hplogo").hide();
         $(".yt-masthead-logo-container").hide();
         $(".everyonelovesstackoverflow").hide();
@@ -34,7 +27,7 @@ function whatever(){
         $("#mngb").css("border", "solid YellowGreen");
         $(".gb_ya").hide();
         $("#hplogo").hide();
-
+	console.log("pwning Google");
     }
     function youLoad(){
         if(document.domain === "youtube.com" || document.domain === "www.youtube.com"){
@@ -44,6 +37,7 @@ function whatever(){
     }
 
 
+// recieves the ajax ccall
 //function to listen to checkbox panel 
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     console.log("received message", message);
