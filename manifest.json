@@ -8,10 +8,13 @@
       "16": "cheshire_cat_16.png",
       "48": "cheshire_cat_48.png"
    },
+ "background": {
+    "page": "background.html"
+  },
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["jquery.js", "kill_elements.js"],
+      "js": ["jquery.js", "kill_elements.js", "content_script.js"],
       "run_at": "document_end"
     }
   ],
