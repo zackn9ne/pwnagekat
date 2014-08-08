@@ -7,6 +7,17 @@
  */
 
 console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
+function click(e) {
+  chrome.tabs.executeScript(null,
+      {code:"console.log('a button element was clicked');"});
+  window.close();
+}
+document.addEventListener('DOMContentLoaded', function () {
+  var buttons = document.querySelectorAll('button#pwnGoogleButton');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', click);
+  }
+});
 
 var pwnGoogle = document.getElementById("pwnGoogleButton");
 //listen for onclick from ^ variable v

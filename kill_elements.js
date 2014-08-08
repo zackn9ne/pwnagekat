@@ -30,7 +30,7 @@ function pwnGoogle(){
     console.log("pwning Google");
 }
 function pwnGmail(){
-    //gmail logo
+    //gmail logo & is also effecting google branding create an if statement fo rgmail domains
     $('.gb_za').hide();
     //gmail loading bar
     $('.lpb').hide();
