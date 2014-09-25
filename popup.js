@@ -9,8 +9,13 @@
 console.log("POPUP SCRIPT ACTIVATED, READY TO HANDLE CLICKS!");
 function click(e) {
   chrome.tabs.executeScript(null,
-      {code:"document.body.style.backgroundColor='" + e.target.id + "'"});
-  window.close();
+    {file:"resurrect_elements.js"});
+      //{code:"console.log('a button element was clicked')" });
+      //{code:"document.body.style.backgroundColor='" + e.target.id + "'"});
+  //window.close();
+        console.log(e.target.id);
+        e.target.id;
+        console.log("woof");
 }
 
 document.addEventListener('DOMContentLoaded', function () {

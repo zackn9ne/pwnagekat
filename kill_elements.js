@@ -25,6 +25,7 @@ function pwnGoogle(){
     $("#hplogo").hide();
     $(".yt-masthead-logo-container").hide();
     $(".everyonelovesstackoverflow").hide();
+    $("#sidebar").hide();
     //entire div on google home
     $("#lga").hide();
     console.log("pwning Google");
